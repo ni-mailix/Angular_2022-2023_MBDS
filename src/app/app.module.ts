@@ -12,13 +12,26 @@ import { RenduDirective } from './shared/rendu.directive';
 import { FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox'
+
+
+//importena ato daholo izay modules angular rht, 
+//dia avy eo declarena eo am imports eo ambany, 
+//ny ng moduless indray dia izay selector no créer-na no ampidirina eo --> 
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AssignmentsComponent,
-    RenduDirective
+    RenduDirective,
+    AssignmentDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +42,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatListModule,
+    MatCardModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
