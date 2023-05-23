@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AssignmentsComponent {
   titre ='Liste des devoirs à rendre';
   c="orange";
+  ajoutActive=false;
   //tableau de devoir à rendre
   assignments = [
     {
@@ -26,4 +27,11 @@ export class AssignmentsComponent {
       rendu : true
     }
   ]
+
+  ngOnInit(): void {
+    console.log("Composant instacié et rendu HTML effectué (le composant est visible dans la page HTMS")
+    setTimeout(() => {
+      this.ajoutActive = true;
+    }, 3000);
+  }
 }

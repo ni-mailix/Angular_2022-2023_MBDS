@@ -29,4 +29,7 @@ section {
     justify-content: center;
     width: 120px;
   }
-  
+  p
+  {
+    size: 100pt;
+  }

@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Cours angular Mr Buffa';
   nom = 'Buffa';
+  boutonDesactive = false;
 }
