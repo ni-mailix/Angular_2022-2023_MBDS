@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Assignment } from '../assignment.model';
 
 @Component({
@@ -8,5 +8,17 @@ import { Assignment } from '../assignment.model';
 })
 export class AssignmentDetailComponent {
   @Input()
-  assignmentTransmis!: Assignment;
+  assignmentTransmis?: Assignment;
+
+  @Output()
+  deleteAssignment = new EventEmitter();
+
+  onDeleteAssignment() {
+    console.log("effacé");
+    if (!this.assignmentTransmis) return;
+    //on emet l'evenemet deleteAssignment
+    this.deleteAssignment.emit();
+    //pour cacher le detail, on met l'assignment à null
+    this.assignmentTransmis = undefined;
+  }
 }

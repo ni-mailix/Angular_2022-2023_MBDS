@@ -13,7 +13,7 @@ export class AssignmentsComponent {
   nomDevoir = "";
   dateDeRendu!: Date;
   assignmentSelectionne!: Assignment;
-  formVisible=false;
+  formVisible = false;
   //tableau de devoir à rendre
   assignments: Assignment[] = [
     {
@@ -32,7 +32,7 @@ export class AssignmentsComponent {
       rendu: true
     }
   ]
- 
+
 
 
   ngOnInit(): void {
@@ -56,16 +56,23 @@ export class AssignmentsComponent {
     this.assignments.push(nouvelAssignment);
   }
 
-  onAssignmentClick(assignment : Assignment) {
+  onAssignmentClick(assignment: Assignment) {
     console.log("Assignment cliqué :" + assignment.nom)
     this.assignmentSelectionne = assignment;
   }
-  onAddAssignmentBtnClick (){
+  onAddAssignmentBtnClick() {
     this.formVisible = true;
   }
-onNouvelAssignment(a:Assignment) {
-  this.assignments.push(a);
+  onNouvelAssignment(a: Assignment) {
+    this.assignments.push(a);
 
-  this.formVisible = false;
-}
+    this.formVisible = false;
+  }
+  onDeleteAssignment() {
+    //pour supprimer on passe à la methode splice
+    //l'index de l'assignment à supprimer et
+    //le nomre d'element à supprimer (ici 1)
+    const index = this.assignments.indexOf(this.assignmentSelectionne);
+    this.assignments.splice(index,1);
+  }
 }

@@ -1,5 +1,5 @@
 <!-- <p *ngIf ="assignmentTransmis">DETAIL DE L'ASSIGNMENT : {{assignmentTransmis.nom}}</p> -->
-
+<form ngForm #assignmentForm  class="form">
 <mat-card *ngIf ="assignmentTransmis">
     <mat-card-content>
       <mat-card-title>{{assignmentTransmis.nom}}</mat-card-title>
@@ -10,4 +10,7 @@
 (click)="assignmentTransmis.rendu = true"
 >Rendu</mat-checkbox>
     </mat-card-actions>
+
+    <button  mat-raised-button color="yellow" class="deleteBtn" (click)="onDeleteAssignment()"> DELETE</button>
   </mat-card>
+</form>

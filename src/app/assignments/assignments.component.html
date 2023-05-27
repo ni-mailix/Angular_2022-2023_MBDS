@@ -61,6 +61,9 @@
 </table>
 -->
 
-    <app-assignment-detail [assignmentTransmis]="assignmentSelectionne"></app-assignment-detail>
+    <app-assignment-detail 
+        [assignmentTransmis]="assignmentSelectionne" 
+        (deleteAssignment)="onDeleteAssignment()" >
+    </app-assignment-detail>
 </main>
 
