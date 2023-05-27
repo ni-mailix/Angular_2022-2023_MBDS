@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Assignment } from './assignment.model';
+import { AssignmentsService } from '../shared/assignments.service';
 
 @Component({
   selector: 'app-assignments',
@@ -9,37 +10,24 @@ import { Assignment } from './assignment.model';
 export class AssignmentsComponent {
   titre = 'Liste des devoirs à rendre';
   c = "orange";
-  ajoutActive = false;
   nomDevoir = "";
   dateDeRendu!: Date;
   assignmentSelectionne!: Assignment;
   formVisible = false;
-  //tableau de devoir à rendre
-  assignments: Assignment[] = [
-    {
-      nom: "Devoir Angular de Mr Buffa",
-      dateDeRendu: new Date("01/06/2023"),
-      rendu: false
-    },
-    {
-      nom: "Devoir Angular de Mr Galli",
-      dateDeRendu: new Date("12/04/2023"),
-      rendu: true
-    },
-    {
-      nom: "Devoir Angular de Mr Mopolo",
-      dateDeRendu: new Date("01/05/2023"),
-      rendu: true
-    }
-  ]
+  assignments: Assignment[]=[];
 
+  constructor(private assignmentsService:AssignmentsService) { // pour appeller le service, il faut un construtor private
+
+  }
 
 
   ngOnInit(): void {
     console.log("Composant instacié et rendu HTML effectué (le composant est visible dans la page HTMS")
-    setTimeout(() => {
-      this.ajoutActive = true;
-    }, 3000);
+    this.assignmentsService.getAssignments()
+    .subscribe(assignments => {
+      this.assignments = assignments;
+      console.log ("Données recues");
+    });
   }
 
   onSubmit(event: any) {
@@ -73,6 +61,6 @@ export class AssignmentsComponent {
     //l'index de l'assignment à supprimer et
     //le nomre d'element à supprimer (ici 1)
     const index = this.assignments.indexOf(this.assignmentSelectionne);
-    this.assignments.splice(index,1);
+    this.assignments.splice(index, 1);
   }
 }
