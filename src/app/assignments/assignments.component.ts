@@ -13,6 +13,7 @@ export class AssignmentsComponent {
   nomDevoir = "";
   dateDeRendu!: Date;
   assignmentSelectionne!: Assignment;
+  formVisible=false;
   //tableau de devoir à rendre
   assignments: Assignment[] = [
     {
@@ -31,6 +32,8 @@ export class AssignmentsComponent {
       rendu: true
     }
   ]
+ 
+
 
   ngOnInit(): void {
     console.log("Composant instacié et rendu HTML effectué (le composant est visible dans la page HTMS")
@@ -57,4 +60,12 @@ export class AssignmentsComponent {
     console.log("Assignment cliqué :" + assignment.nom)
     this.assignmentSelectionne = assignment;
   }
+  onAddAssignmentBtnClick (){
+    this.formVisible = true;
+  }
+onNouvelAssignment(a:Assignment) {
+  this.assignments.push(a);
+
+  this.formVisible = false;
+}
 }
