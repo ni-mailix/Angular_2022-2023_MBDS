@@ -28,9 +28,9 @@
 </div> -->
 
 
-<main *ngIf="!formVisible">
+<main class="container" *ngIf="!formVisible">
 
-    <button mat-flat-button color="accent" (click)="onAddAssignmentBtnClick()"> Ajouter Assignment
+    <button class="ajouterBtn" mat-flat-button color="accent" (click)="onAddAssignmentBtnClick()"> Ajouter Assignment
     </button>
 
     <mat-divider></mat-divider>
@@ -38,10 +38,10 @@
         <h3 mat-subheader>{{a.dateDeRendu | date: 'dd/MM/YYYY'}}</h3>
         <mat-list-item (click)="onAssignmentClick(a)">
             <p appRendu *ngIf="a.rendu; else nonsoumis">
-                {{a.nom}}, rendu : {{a.rendu}}
+                {{a.nom}}
             </p>
             <ng-template #nonsoumis>
-                {{a.nom}} NON RENDU, date limite : {{a.dateDeRendu}}
+                {{a.nom}} NON RENDU
             </ng-template>
 
         </mat-list-item>

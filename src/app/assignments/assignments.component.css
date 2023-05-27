@@ -13,3 +13,12 @@ table, tr, td {
     border : 2px dashed violet;
     padding : 5px;
 }
+
+.container {
+    display : flex;
+    flex-direction : column;
+}
+
+.ajouterBtn {
+    align-self : flex-end;
+}
